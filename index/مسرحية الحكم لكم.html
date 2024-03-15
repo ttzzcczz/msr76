@@ -7,34 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Player</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/openplayerjs@latest/dist/openplayer.min.css">
-  <style>
+    <style>
     #logo {
       position: absolute;
       top: 5px;
       left: 5px;
       z-index: 1000;
-      width: 5%;
-      /* Default width for larger screens */
-      height: auto;
-      /* Automatically adjust height to maintain aspect ratio */
+      width: 10%; /* Adjust the width percentage as needed */
+      height: auto; /* Automatically adjust height to maintain aspect ratio */
     }
 
     body {
       background-color: black;
+      /* تغيير لون الخلفية إلى الأسود */
       margin: 0;
       overflow: hidden;
+      /* لمنع ظهور أي أشرطة تمرير */
     }
 
+    /* تحديد حجم الفيديو بحجم الصفحة بالكامل */
     .op-player__media {
       width: 100vw;
       height: 100vh;
     }
-
+    
     /* Media query for smaller screens */
     @media screen and (max-width: 768px) {
       #logo {
-        width: 10%;
-        /* Adjusted width for smaller screens */
+        width: 20%; /* Adjust the width percentage for smaller screens */
       }
     }
   </style>
