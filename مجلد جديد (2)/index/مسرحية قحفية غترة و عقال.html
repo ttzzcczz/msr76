@@ -1,0 +1,87 @@
+To make the logo responsive and adjust its size appropriately on different devices, including mobile devices, you can
+use media queries in your CSS. Here's the modified code with responsive logo sizing:
+
+```html
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Player</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/openplayerjs@latest/dist/openplayer.min.css">
+  <style>
+    #logo {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      z-index: 1000;
+      width: 5%;
+      /* Default width for larger screens */
+      height: auto;
+      /* Automatically adjust height to maintain aspect ratio */
+    }
+
+    body {
+      background-color: black;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .op-player__media {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* Media query for smaller screens */
+    @media screen and (max-width: 768px) {
+      #logo {
+        width: 10%;
+        /* Adjusted width for smaller screens */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <img id="logo"
+    src="https://blogger.googleusercontent.com/img/a/AVvXsEic2RnnzrmE0rJab7bXL8YaV73o3yiQAmfdl8LF-frVd95nTD6iPseHvjNXYoVCUpqbpyJHBNLd6XvUWIetyBrcreK88ds_v8NO-cu8edR1NAPRly3UnkTEhfIFTgGc4_2bujRbq-QZBfxrk4rK9xCOMiYOzvCy-l5mesres2kuMVhMzI283DjGPOGJAQ=s150"
+    alt="Your Logo" />
+  <video class="op-player__media" id="player" controls playsinline>
+    <source
+      src="https://embed-ssl.wistia.com/deliveries/5f30111497b99a0c60d99bcf5d3d5eac12c1c052.bin?disposition=attachment&filename=720p%29.mp4"
+      title="1080p" type="video/mp4" />
+    <source
+      src="https://embed-ssl.wistia.com/deliveries/a7bc237f3e20551ec30169473d820098e33e3f19.bin?disposition=attachment&filename=720p%29.mp4"
+      title="720p" type="video/mp4" />
+    <source
+      src="https://embed-ssl.wistia.com/deliveries/b0f99e66bb020b2beb5e10566b43f2fc727f28f5.bin?disposition=attachment&filename=720p%29.mp4"
+      title="480p" type="video/mp4" />
+  </video>
+  <script src="https://cdn.jsdelivr.net/npm/openplayerjs@latest/dist/openplayer.min.js"></script>
+  <script>
+    const player = new OpenPlayerJS('player', {
+      startTime: 0,
+      startVolume: .5,
+      controls: {
+        layers: {
+          left: ['play', 'time', 'volume'],
+          middle: ['progress'],
+          right: ['levels', 'captions', 'settings', 'fullscreen']
+        }
+      },
+      poster: "https://morb3.com/wp-content/uploads/2020/04/319-hd%D8%B5%D9%88%D8%B1-%D8%AE%D9%84%D9%81%D9%8A%D8%A7%D8%AA-%D8%A7%D8%B3%D9%84%D8%A7%D9%85%D9%8A%D8%A9-%D8%AF%D9%8A%D9%86%D9%8A%D8%A9-%D8%A7%D8%AF%D8%B9%D9%8A%D8%A9-%D9%84%D9%84%D9%85%D9%88%D8%A8%D8%A7%D9%8A%D9%84-%D8%A7%D9%8A%D9%81%D9%88%D9%86-%D9%85%D9%83%D8%AA%D9%88%D8%A8-%D8%B9%D9%84%D9%8A%D9%87%D8%A7-%D8%B9%D8%A8%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%81%D8%B1%D8%AC-%D8%AF%D8%B9%D8%A7%D8%A1-%D8%A7%D9%84%D9%88%D8%A8%D8%A7%D8%A1-%D9%84%D9%84%D9%88%D8%A7%D8%AA%D8%B3-%D9%84%D9%84%D9%81%D9%8A%D8%B3-%D9%85%D8%B5%D9%88%D8%B1%D8%A9-%D8%A7%D9%84%D8%AF%D8%B9%D8%A7%D8%A1-724x1024.jpg",
+      forward: true,
+    });
+    player.init();
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
+</body>
+
+</html>
+```
+
+This code will ensure that the logo maintains its aspect ratio and adjusts its size responsively based on the screen
+width, including mobile devices. Adjust the percentage values in the media query as needed to achieve the desired
+appearance on different screen sizes.
