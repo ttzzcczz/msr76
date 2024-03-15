@@ -1,7 +1,3 @@
-To make the logo responsive and adjust its size appropriately on different devices, including mobile devices, you can
-use media queries in your CSS. Here's the modified code with responsive logo sizing:
-
-```html
 <!DOCTYPE html>
 
 <html lang="en">
@@ -11,34 +7,34 @@ use media queries in your CSS. Here's the modified code with responsive logo siz
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Player</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/openplayerjs@latest/dist/openplayer.min.css">
-  <style>
+   <style>
     #logo {
       position: absolute;
       top: 5px;
       left: 5px;
       z-index: 1000;
-      width: 5%;
-      /* Default width for larger screens */
-      height: auto;
-      /* Automatically adjust height to maintain aspect ratio */
+      width: 10%; /* Adjust the width percentage as needed */
+      height: auto; /* Automatically adjust height to maintain aspect ratio */
     }
 
     body {
       background-color: black;
+      /* تغيير لون الخلفية إلى الأسود */
       margin: 0;
       overflow: hidden;
+      /* لمنع ظهور أي أشرطة تمرير */
     }
 
+    /* تحديد حجم الفيديو بحجم الصفحة بالكامل */
     .op-player__media {
       width: 100vw;
       height: 100vh;
     }
-
+    
     /* Media query for smaller screens */
     @media screen and (max-width: 768px) {
       #logo {
-        width: 10%;
-        /* Adjusted width for smaller screens */
+        width: 20%; /* Adjust the width percentage for smaller screens */
       }
     }
   </style>
@@ -80,8 +76,3 @@ use media queries in your CSS. Here's the modified code with responsive logo siz
 </body>
 
 </html>
-```
-
-This code will ensure that the logo maintains its aspect ratio and adjusts its size responsively based on the screen
-width, including mobile devices. Adjust the percentage values in the media query as needed to achieve the desired
-appearance on different screen sizes.
